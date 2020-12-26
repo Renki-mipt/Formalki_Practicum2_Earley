@@ -60,7 +60,7 @@ TEST(Algo, Predict) {
       EXPECT_EQ(levels[1][0].alpha_[1], 'T');
       EXPECT_EQ(levels[1][0].alpha_[2], 'a');
     }
-    EXPECT_EQ(levels[1][0].i_, 1);
+    EXPECT_EQ(levels[1][0].passed_way_, 1);
   }
 }
 
@@ -93,7 +93,7 @@ TEST(Algo, Complete) {
     if (levels[1][0].betta_.size() == 1) {
       EXPECT_EQ(levels[1][0].betta_[0], 'b');
     }
-    EXPECT_EQ(levels[1][0].i_, 0);
+    EXPECT_EQ(levels[1][0].passed_way_, 0);
   }
 }
 
@@ -130,6 +130,15 @@ TEST(StateCmp, operator_round_bracket) {
     EXPECT_EQ(*it, first);
     EXPECT_EQ(*(++it), second);
   }
+}
+
+TEST(NumberFromLetter, correct_work) {
+  int c_num = 2;
+  int Z_num = 25;
+  int request_c = NumberFromLetter('c');
+  int request_Z = NumberFromLetter('Z');
+  EXPECT_EQ(c_num, request_c);
+  EXPECT_EQ(Z_num, request_Z);
 }
 
 int main(int argc, char *argv[]) {
